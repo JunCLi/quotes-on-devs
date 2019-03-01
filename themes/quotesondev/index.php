@@ -31,6 +31,9 @@ get_header(); ?>
 
 		<?php endif; ?>
 
+
+			<button type="button" id="another-quote">Show me another!</button>
+
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

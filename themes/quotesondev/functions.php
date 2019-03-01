@@ -70,11 +70,30 @@ function qod_scripts() {
 	wp_enqueue_script('quote_on_dev', get_template_directory_uri() . '/js/api.js', array('jquery'), false, true);
 	wp_localize_script('quote_on_dev', 'random_quote', array(
 		'rest_url' => esc_url_raw(rest_url()),
-		'wpapi_none' => wp_create_nonce('wp_rest'),
+		'wpapi_nonce' => wp_create_nonce('wp_rest'),
 		'post_id' => get_the_ID()
 	) );
 }
 add_action( 'wp_enqueue_scripts', 'qod_scripts' );
+
+/**
+ * Add Numeric Pagination
+ */
+// function numeric_posts_nav() {
+// 	if (is_singular()) {
+// 		return;
+// 	}
+
+// 	global $wp_query;
+
+// 	if($wp_query->max_num_pages <= 1) {
+// 		return;
+// 	}
+
+// 	$paged = get_query_var('paged') ? absint(get_query_var('paged')) : 1;
+
+// }
+
 
 /**
  * Load only 1 quote 

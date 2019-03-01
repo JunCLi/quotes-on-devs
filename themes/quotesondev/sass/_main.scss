@@ -43,11 +43,11 @@ Quote Styles
 */
 
 .site-main {
-  h2 {
+  h2.entry-title {
     a {
       color: $font-colour-base;
     }
-
+    
     &:before {
       content: "— ";
     }

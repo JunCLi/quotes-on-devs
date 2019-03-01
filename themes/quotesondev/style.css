@@ -249,10 +249,10 @@ ul {
 Quote Styles
 =========================
 */
-.site-main h2 a {
+.site-main h2.entry-title a {
   color: #fff; }
 
-.site-main h2:before {
+.site-main h2.entry-title:before {
   content: "— "; }
 
 .site-main .entry-content a {
@@ -298,3 +298,31 @@ Another Quote Button Styles
 
 .main-navigation a {
   color: #00cc00; }
+
+/*
+=========================
+Main Archive Page
+=========================
+*/
+.page section ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  padding: 0; }
+  .page section ul li {
+    padding-right: 20px; }
+    .page section ul li a {
+      color: #00cc00; }
+
+/*
+=========================
+Categories Page
+=========================
+*/
+.category article, .tag article {
+  padding: 20px 0;
+  border-bottom: 1px solid #fff; }

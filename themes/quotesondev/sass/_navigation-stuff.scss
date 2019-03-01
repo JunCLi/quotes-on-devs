@@ -1,0 +1,21 @@
+.main-navigation {
+  ul {
+    display: flex;
+    flex-flow: row nowrap;
+
+    padding: 0;
+
+    li:not(:last-child) {
+      
+      &:after {
+        
+        content: " | ";
+        margin: 0 10px;
+      }
+    }
+  }
+
+  a {
+    color: $brand-colour-green;
+  }
+}

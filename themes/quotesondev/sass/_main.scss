@@ -1,0 +1,78 @@
+/*
+=========================
+Variables
+=========================
+*/
+
+// Dimensions
+$base-spacing: 1.5rem;
+
+// Colours
+$brand-colour-green: #00cc00;
+$font-colour-base: #fff;
+
+/*
+=========================
+General Styles
+=========================
+*/
+
+body {
+  background-color: #222222;
+  color: $font-colour-base;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.site {
+  margin: 20px;
+}
+
+/*
+=========================
+Quote Styles
+=========================
+*/
+
+.site-main {
+  h2 {
+    a {
+      color: $font-colour-base;
+    }
+
+    &:before {
+      content: "— ";
+    }
+  }
+
+  .entry-content {
+    a {
+      color: $brand-colour-green;
+    }
+  }
+}
+
+/*
+=========================
+Another Quote Button Styles
+=========================
+*/
+
+#another-quote {
+  padding: $base-spacing / 2 $base-spacing * 1.5;
+
+  background-color: transparent;
+  border: 2px solid $brand-colour-green;
+  border-radius: 3px;
+  color: $brand-colour-green;
+  font-weight: bold;
+  text-transform: capitalize;
+}

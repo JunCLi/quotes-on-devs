@@ -1,0 +1,12 @@
+.site-header {
+  .site-title {
+    a {
+      color: $font-colour-base;
+      text-transform: lowercase;
+    }
+    em {
+      color: $brand-colour-green;
+      font-weight: lighter;
+    }
+  }
+}

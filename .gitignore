@@ -338,11 +338,9 @@ ASALocalRun/
 !README.md
 # Ignore everything in "plugins" except certain plugins. #
 plugins/*
-!plugins/red-inhabitent-customposts/
-!plugins/business-hours-widget/
 # Ignore everything in "themes" except the active theme. #
 themes/*
-!themes/inhabitent/
+!themes/quotesondevs/
 
 # Ignore OS files #
 # =============== #

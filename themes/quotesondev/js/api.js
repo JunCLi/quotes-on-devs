@@ -1,7 +1,10 @@
+// import { format } from "url";
+
 (function($) {
   
   const currentUrl = window.location.href;
 
+  // Update Content on random quote
   const updateContent = (data) => {
     const $content = $('.entry-content');
     const $title = $('.entry-title');
@@ -10,6 +13,7 @@
     $title.html(data.title.rendered);
   }
 
+  // Random Quote
   $('#another-quote').on('click', event => {
     event.preventDefault();
 
@@ -44,5 +48,35 @@
       return;
     }
     updateContent(event.state);
+  });
+
+  $('#submit-new-quote').on('submit', event => {
+    event.preventDefault();
+    const $form = $(event.currentTarget);
+    let formData = {}
+
+    $form.find('[name]').each( (index, value) => {
+      let inputValue = value.value;
+      formData[value.name] = inputValue;
+
+    });
+    
+    formData.status = 'publish';
+    formData.category = 'User Submitted'
+
+    $.ajax({
+      method: 'POST',
+      url: submit_quote.rest_url + 'wp/v2/posts',
+      data: formData,
+      dataType: 'json',
+      beforeSend: (xhr) => {
+        xhr.setRequestHeader('X-WP-Nonce', submit_quote.wpapi_nonce);
+      },
+      success: () => {
+      }
+    }).done(() => {
+    }).fail(() => {
+    }).always(() => {
+    });
   });
 })(jQuery);

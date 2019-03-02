@@ -1,0 +1,44 @@
+.page-template-page-submit {
+  form div {
+    display: flex;
+    flex-flow: column nowrap;
+
+    padding: $base-spacing / 3 0;
+
+    input {
+      width: 60%;
+      min-width: 250px;
+      margin: $base-spacing / 3 0;
+      padding: $base-spacing / 4 $base-spacing / 2;
+
+      background-color: transparent;
+      border: 2px solid $brand-colour-green;
+      border-radius: 3px;
+    }
+
+    textarea {
+      box-sizing: border-box;
+      resize: vertical;
+
+      max-height: 50vh;
+      height: 10vh;
+      width: 100%;
+      margin: $base-spacing / 3 0;
+      padding: $base-spacing / 4 $base-spacing / 2;
+
+      background-color: transparent;
+      border: 2px solid $brand-colour-green;
+      border-radius: 3px;
+    }
+  }
+
+  #submit-quote {
+    margin: $base-spacing / 2 0;
+    padding: $base-spacing / 4 $base-spacing;
+    
+    background-color: transparent;
+    border: 2px solid $brand-colour-green;
+    border-radius: 3px;
+    color: $brand-colour-green;
+  }
+}

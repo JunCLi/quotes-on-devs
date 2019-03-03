@@ -84,32 +84,18 @@ function qod_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'qod_scripts' );
 
-/**
- * Add Numeric Pagination
- */
-// function numeric_posts_nav() {
-// 	if (is_singular()) {
-// 		return;
-// 	}
-
-// 	global $wp_query;
-
-// 	if($wp_query->max_num_pages <= 1) {
-// 		return;
-// 	}
-
-// 	$paged = get_query_var('paged') ? absint(get_query_var('paged')) : 1;
-
-// }
-
 
 /**
- * Load only 1 quote 
+ * Main Loop quote loading settings
  */
 function post_one_quote($query) {
 	if ($query->is_main_query() && $query->is_home()) {
 		$query->set('posts_per_page', '1');
 		$query->set('orderby', 'rand');
+	}
+
+	if ($query-> is_main_query() && $query->is_category() || $query->is_tag()) {
+		$query->set('posts_per_page', '5');
 	}
 }
 add_action('pre_get_posts', 'post_one_quote');

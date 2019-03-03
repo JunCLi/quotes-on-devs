@@ -14,7 +14,7 @@ get_header(); ?>
 
 				<?php get_template_part( 'template-parts/content', 'page' ); ?>
 
-			<?php endwhile; // End of the loop. ?>
+			<?php endwhile; wp_reset_postdata(); // End of the loop. ?>
 
 			<section class="quote-authors">
 				<h2>Quote Authors</h2>
@@ -25,11 +25,17 @@ get_header(); ?>
 						'posts_per_page' => -1
 					);
 
-					$quoteAuthors = get_posts($quoteAuthorsArgs);
+					$quoteAuthors = new WP_Query($quoteAuthorsArgs);
 
-					foreach ($quoteAuthors as $quote) : setup_postdata($quote); ?>
-						<li><a href="<?php the_permalink() ?>"><?php echo $quote->post_title ?></a></li>
-					<?php endforeach; 
+					if ($quoteAuthors->have_posts()) : 
+						while ($quoteAuthors->have_posts()) : $quoteAuthors->the_post(); ?>
+							<li><a href="<?php echo get_permalink() ?>"><?php the_title() ?></a></li>
+						<?php endwhile; wp_reset_postdata();
+					endif;	
+
+					
+
+					
 					?>
 				</ul>
 			</section> 
@@ -41,7 +47,8 @@ get_header(); ?>
 					$categories = get_categories();
 					foreach ($categories as $category) : ?>
 						<li><a href="<?php echo get_category_link($category->term_id) ?>"><?php echo $category->name ?></a></li>
-					<?php endforeach ?>
+					<?php endforeach; wp_reset_postdata(); ?>
+					
 				</ul>
 			</section> 
 
@@ -52,7 +59,7 @@ get_header(); ?>
 					$tags = get_tags();
 					foreach ($tags as $tag) : ?>
 						<li><a href="<?php echo get_tag_link($tag->term_id) ?>"><?php echo $tag->name ?></a></li>
-					<?php endforeach ?>
+					<?php endforeach; wp_reset_postdata(); ?>
 				</ul>
 			</section> 
 

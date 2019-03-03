@@ -1,0 +1,21 @@
+.search-form {
+  fieldset {
+    padding: 0;
+    
+    border: 0px solid transparent;
+  }
+
+  .search-field {
+    padding: $base-spacing / 2 $base-spacing / 2;
+
+    background-color: transparent;
+    border: 2px solid $brand-colour-green;
+    border-radius: 3px;
+  }
+
+  .search-submit {
+    background-color: transparent;
+    border: 0px solid transparent;
+    color: $brand-colour-green;
+  }
+}

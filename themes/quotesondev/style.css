@@ -246,6 +246,18 @@ ul {
 
 /*
 =========================
+Main Styles
+=========================
+*/
+.site-title {
+  font-size: 3em; }
+
+.site-content {
+  min-height: 50vh;
+  margin: 5% 0 10%; }
+
+/*
+=========================
 Quote Styles
 =========================
 */
@@ -357,10 +369,34 @@ Categories Page
     border: 2px solid #00cc00;
     border-radius: 3px; }
 
-.page-template-page-submit #submit-quote {
+.page-template-page-submit form.hidden {
+  display: none; }
+
+.page-template-page-submit #submit-quote, .page-template-page-submit .submit-another button, .page-template-page-submit .error-message button {
   margin: 0.75rem 0;
   padding: 0.375rem 1.5rem;
   background-color: transparent;
   border: 2px solid #00cc00;
   border-radius: 3px;
+  color: #00cc00; }
+
+.page-template-page-submit .submit-another p, .page-template-page-submit .error-message p {
+  font-size: 1.5em; }
+
+.page-template-page-submit a {
+  color: #00cc00; }
+
+.search-form fieldset {
+  padding: 0;
+  border: 0px solid transparent; }
+
+.search-form .search-field {
+  padding: 0.75rem 0.75rem;
+  background-color: transparent;
+  border: 2px solid #00cc00;
+  border-radius: 3px; }
+
+.search-form .search-submit {
+  background-color: transparent;
+  border: 0px solid transparent;
   color: #00cc00; }

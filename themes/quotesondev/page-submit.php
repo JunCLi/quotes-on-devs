@@ -17,22 +17,22 @@ get_header(); ?>
 
 			<?php endwhile; // End of the loop. ?>
 
-			<form id="submit-new-quote" action="<?php get_template_directory_uri() . 'wp-json/wp/v2/posts' ?>"method="post">
+			<form id="submit-new-quote" action="" method="post">
 				<div>
 					<label for="name">Author of Quote</label>
-					<input type="text" id="name" name="title" value="hi">
+					<input type="text" id="name" name="title">
 				</div>
 				<div>
 					<label for="name">Quote</label>
-					<textarea id="quote" name="content">why</textarea>
+					<textarea id="quote" name="content"></textarea>
 				</div>
 				<div>
 					<label for="name">Where did you find this quote? (e.g. book name)</label>
-					<input type="text" id="find-quote" name="_qod_quote_source" value="bye">
+					<input type="text" id="find-quote" name="_qod_quote_source">
 				</div>
 				<div>
 					<label for="name">Provide url of quote source, if available.</label>
-					<input type="text" id="url-source" name="_qod_quote_source_url" value="cry">
+					<input type="text" id="url-source" name="_qod_quote_source_url">
 				</div>
 				<button type="submit" id="submit-quote">Submit Quote</button>
 			</form>

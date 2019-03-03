@@ -32,13 +32,25 @@
     }
   }
 
-  #submit-quote {
+  form.hidden {
+    display: none;
+  }
+
+  #submit-quote, .submit-another button, .error-message button{
     margin: $base-spacing / 2 0;
     padding: $base-spacing / 4 $base-spacing;
     
     background-color: transparent;
     border: 2px solid $brand-colour-green;
     border-radius: 3px;
+    color: $brand-colour-green;
+  }
+
+  .submit-another p, .error-message p {
+    font-size: 1.5em;
+  }
+
+  a {
     color: $brand-colour-green;
   }
 }

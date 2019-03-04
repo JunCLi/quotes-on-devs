@@ -27,8 +27,9 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<?php echo paginate_links(); ?>
-
+			<nav class="pagination">
+				<?php echo paginate_links(); ?>
+			</nav>
 		<?php else : ?>
 
 			<?php get_template_part( 'template-parts/content', 'none' ); ?>

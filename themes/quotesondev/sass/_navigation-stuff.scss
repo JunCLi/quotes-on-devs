@@ -19,3 +19,15 @@
     color: $brand-colour-green;
   }
 }
+
+.pagination, .number-pagination {
+  margin: 2em 0;
+
+  * {
+    padding-right: $base-spacing / 4;
+  }
+
+  a {
+    color: $brand-colour-green;
+  }
+}

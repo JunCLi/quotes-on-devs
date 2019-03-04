@@ -60,6 +60,43 @@
     updateContent(event.state);
   });
 
+  const failToSubmit = response => {
+    $form.addClass('hidden');
+
+    let errorMessage = `<div class="error-message">
+    <p>There has been an error processing your quote submission, please try again.</p>
+    <button>try again</button>
+    </div>`;
+
+    if (response === 'missingcontent') {
+      errorMessage = `<div class="error-message">
+      <p>There has been an error processing your quote submission. Your quote field is empty. Please try again.</p>
+      <button>try again</button>
+      </div>`;
+    } else if (response.statusText) {
+      const responseType = response.statusText.toLowerCase();
+      if (responseType === 'unauthorized') {
+        let urlArray = currentUrl.split('/');
+        let baseUrl = currentUrl;
+        
+        for (let i = 1; i < urlArray.length; i++) {
+          if (urlArray.slice(0, -i).includes('submit')) {
+            baseUrl = urlArray.slice(0, -i - 1);
+          }
+        }
+
+        baseUrl = baseUrl.join('/');
+        baseUrl = baseUrl + '/';
+
+        errorMessage = `<div class="error-message">
+        <p>Sorry, you must be logged in to submit a quote!</p>
+        <p><a href="${baseUrl}wp-login.php">Click here to login.</a></p>
+        </div>`;
+      }
+    }
+    $form.after(errorMessage);
+  };
+
   // submit new quote
   const $form = $('#submit-new-quote');
   $form.on('submit', event => {
@@ -69,6 +106,10 @@
     // save form content to be submitted
     let formData = {}
     $form.find('[name]').each( (index, value) => {
+      console.log(formData[value.name]);
+      if (formData[value.name] === 'content' && value.value.trim() === '') {
+        failToSubmit('missingcontent');
+      }
       formData[value.name] = value.value;
     });
     
@@ -90,35 +131,7 @@
       const afterSubmit = '<div class="submit-another"><p>Your quote has been submitted!</p><button type="button">Submit Another Quote</button></div>'
       $form.after(afterSubmit);
     }).fail(response => {
-      console.log(response);
-      $form.addClass('hidden');
-
-      let errorMessage = `<div class="error-message">
-      <p>There has been an error processing your quote submission, please try again.</p>
-      <button>try again</button>
-      </div>`;
-      if (response.statusText) {
-        const responseType = response.statusText.toLowerCase();
-        if (responseType === 'unauthorized') {
-          let urlArray = currentUrl.split('/');
-          let baseUrl = currentUrl;
-          
-          for (let i = 1; i < urlArray.length; i++) {
-            if (urlArray.slice(0, -i).includes('submit')) {
-              baseUrl = urlArray.slice(0, -i - 1);
-            }
-          }
-
-          baseUrl = baseUrl.join('/');
-          baseUrl = baseUrl + '/';
-
-          errorMessage = `<div class="error-message">
-          <p>Sorry, you must be logged in to submit a quote!</p>
-          <p><a href="${baseUrl}wp-login.php">Click here to login.</a></p>
-          </div>`;
-        }
-      }
-      $form.after(errorMessage);
+      failToSubmit(response);
     }).always(() => {
     });
   });

@@ -92,7 +92,6 @@ add_action( 'wp_enqueue_scripts', 'qod_scripts' );
 function post_one_quote($query) {
 	if ($query->is_main_query() && $query->is_home()) {
 		$query->set('posts_per_page', '1');
-		$query->set('orderby', 'rand');
 	}
 
 	if ($query-> is_main_query() && $query->is_category() || $query->is_tag()) {

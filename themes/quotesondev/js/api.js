@@ -1,6 +1,5 @@
-// import { format } from "url";
-
 (function($) {
+  // Save current url
   const currentUrl = window.location.href;
 
   // Update Content on random quote
@@ -19,14 +18,21 @@
     if (data.title.rendered) {
       quoteBuilder += `<header class="entry-header">
       <h2 class="entry-title">
-      <a href="${data.link}">${data.title.rendered}`;
+      <a href="${data.link}">${data.title.rendered}</a>`;
 
+      // Add quote source if available
       if (data._qod_quote_source) {
         quoteBuilder += `<span class="quote-source">${data._qod_quote_source}</span>`;
       }
-      quoteBuilder += '</a></h2></header>';
-    } 
+      quoteBuilder += '</h2></header>';
+    } else {
+      // If no quote author entered, show as anonymous
+      quoteBuilder += `<header class="entry-header">
+      <h2 class=entry-title">
+      <a href="${data.link}">Anonymous</a></h2></header>`;
+    }
     
+    // append quote
     $post.append(quoteBuilder);
   }
 
@@ -61,16 +67,7 @@
     randomQuoteFunction();
   });
 
-
-  console.log($('.hidden').html());
-  console.log($('.fa-spinner').length);
-
-  if ($('.hidden').html()) {
-    console.log('wtf js');
-  }
-
-  // TODO add placeholder before compile finishes then use this script
-  // Event handler to recieve random quote on initial page load
+  // If it home page, api call for a random quote
   let firstPageLoad = 0;
   if (firstPageLoad === 0 && $('.fa-spinner').length) {
     firstPageLoad++;
@@ -87,21 +84,27 @@
   });
 
   const failToSubmit = response => {
+    // Hide form
     $form.addClass('hidden');
 
+    // Default error message
     let errorMessage = `<div class="error-message">
     <p>There has been an error processing your quote submission, please try again.</p>
     <button>try again</button>
     </div>`;
 
+    // Specialized error messages
     if (response === 'missingcontent') {
       errorMessage = `<div class="error-message">
-      <p>There has been an error processing your quote submission. Your quote field is empty. Please try again.</p>
+      <p>There has been an error processing your quote submission.</p>
+      <p>Your quote field is empty. Please try again.</p>
       <button>try again</button>
       </div>`;
     } else if (response.statusText) {
       const responseType = response.statusText.toLowerCase();
       if (responseType === 'unauthorized') {
+
+        // Create login url
         let urlArray = currentUrl.split('/');
         let baseUrl = currentUrl;
         
@@ -127,23 +130,23 @@
   const $form = $('#submit-new-quote');
   $form.on('submit', event => {
     event.preventDefault();
-    // const $form = $(event.currentTarget);
 
     // save form content to be submitted
     let formData = {}
     $form.find('[name]').each( (index, value) => {
-      console.log(formData[value.name]);
-      if (formData[value.name] === 'content' && value.value.trim() === '') {
-        failToSubmit('missingcontent');
-      }
       formData[value.name] = value.value;
     });
     
+    // If missing a quote, output error
+    if (formData.content.trim() === '' || !formData.content) {
+      failToSubmit('missingcontent');
+      return;
+    }
+
+    // Add additional properties to submission data
     formData.status = 'publish';
     formData.category = 'User Submitted'
 
-    // console.log($form);
-    // console.log($('#submit-new-quote'));
     $.ajax({
       method: 'POST',
       url: submit_quote.rest_url + 'wp/v2/posts',
@@ -153,6 +156,7 @@
         xhr.setRequestHeader('X-WP-Nonce', submit_quote.wpapi_nonce);
       }
     }).done(() => {
+      // Successful quote submission stuff
       $form.addClass('hidden');
       const afterSubmit = '<div class="submit-another"><p>Your quote has been submitted!</p><button type="button">Submit Another Quote</button></div>'
       $form.after(afterSubmit);

@@ -15,6 +15,7 @@
     }
 
     // Add quote author and quote source
+      console.log('hi');
     if (data.title.rendered) {
       quoteBuilder += `<header class="entry-header">
       <h2 class="entry-title">
@@ -28,7 +29,7 @@
     } else {
       // If no quote author entered, show as anonymous
       quoteBuilder += `<header class="entry-header">
-      <h2 class=entry-title">
+      <h2 class="entry-title">
       <a href="${data.link}">Anonymous</a></h2></header>`;
     }
     
@@ -141,6 +142,11 @@
     if (formData.content.trim() === '' || !formData.content) {
       failToSubmit('missingcontent');
       return;
+    }
+
+    // If missing a quote author, fill it as anonymous
+    if (formData.title.trim() === '' || !formData.content) {
+      formData.title = 'Anonymous';
     }
 
     // Add additional properties to submission data

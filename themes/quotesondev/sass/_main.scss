@@ -162,6 +162,11 @@ Quote Styles
     .quote-source {
       font-weight: lighter;
       color: $brand-colour-green;
+      
+      a {
+        font-weight: lighter;
+        color: $brand-colour-green;
+      }
 
       &:before {
         content: ", ";

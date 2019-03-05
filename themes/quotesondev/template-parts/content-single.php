@@ -13,12 +13,22 @@
 	</div><!-- .entry-content -->
 
 	<header class="entry-header">
+		<?php foreach (get_post_custom() as $customProp => $propValue) : ?>
+			<?php 
+			// print_r($apple);
+				if ($customProp === '_qod_quote_source') {
+					$quoteSource = $propValue[0];
+				}
+
+				if ($customProp === '_qod_quote_source_url') {
+					$quoteSourceUrl = $propValue[0];
+				}
+			?>
+		<?php endforeach; ?>
+
 		<h2 class="entry-title">
-			<a href="<?php get_permalink() ?>" rel="bookmark"><?php the_title() ?></a>
-			<?php $quoteSources = get_post_custom()['_qod_quote_source'];
-		foreach ($quoteSources as $quoteSource) : ?>
-			<span class="quote-source"><?php echo $quoteSource ?></span>
-		<?php endforeach ?>
+			<a href="<?php get_permalink() ?>" rel="bookmark"><?php the_title() ?></a><span class="quote-source"><a href="<?php echo $quoteSourceUrl ?>"><?php echo $quoteSource ?></a></span>
 	</h2>
 	</header><!-- .entry-header -->
+
 </article><!-- #post-## -->

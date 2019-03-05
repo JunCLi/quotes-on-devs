@@ -359,6 +359,9 @@ Quote Styles
 .site-main h2.entry-title .quote-source {
   font-weight: lighter;
   color: #00cc00; }
+  .site-main h2.entry-title .quote-source a {
+    font-weight: lighter;
+    color: #00cc00; }
   .site-main h2.entry-title .quote-source:before {
     content: ", ";
     color: #fff; }

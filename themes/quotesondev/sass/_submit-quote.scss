@@ -1,5 +1,10 @@
-.page-template-page-submit {
+/*
+=========================
+Submit a Quote Page Styles
+=========================
+*/
 
+.page-template-page-submit {
   form div {
     display: flex;
     flex-flow: column nowrap;
@@ -33,6 +38,7 @@
     }
   }
 
+  // Button stylins
   #submit-quote, .submit-another button, .error-message button{
     margin: $base-spacing / 2 0;
     padding: $base-spacing / 4 $base-spacing;

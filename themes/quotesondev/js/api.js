@@ -15,7 +15,6 @@
     }
 
     // Add quote author and quote source
-      console.log('hi');
     if (data.title.rendered) {
       quoteBuilder += `<header class="entry-header">
       <h2 class="entry-title">

@@ -105,6 +105,7 @@ Main Styles
     margin: 2em auto 3em;
 
     .content-area {
+      width: 100%;
       max-width: $inner-content-width;
       margin: 0 auto;
     }
@@ -133,6 +134,17 @@ Quote Styles
 */
 
 .site-main {
+  
+  .fa-spinner {
+    display: block;
+    font-size: 10em;
+    width: 200px;
+    margin: $base-spacing auto;
+
+    transform: rotate(720deg) 2s;
+  
+  }
+
   h2.entry-title {
     a {
       color: $font-colour-base;

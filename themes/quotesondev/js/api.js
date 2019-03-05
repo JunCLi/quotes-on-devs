@@ -5,13 +5,29 @@
 
   // Update Content on random quote
   const updateContent = (data) => {
-    // let quoteBuilder = '';
+    const $post = $('.post');
+    $post.empty();
 
-    $('.entry-content').html(data.content.rendered);
-    $('.entry-title').html(`<a href="${data.link}">${data.title.rendered}</a><span class="quote-source"></span>`);
-    $('.quote-source').html(data._qod_quote_source);
-    console.log(data);
-    console.log(data._qod_quote_source);
+    let quoteBuilder = '';
+
+    // Add quote content
+    if (data.content.rendered) {
+      quoteBuilder += `<div class="entry-content">${data.content.rendered}</div>`;
+    }
+
+    // Add quote author and quote source
+    if (data.title.rendered) {
+      quoteBuilder += `<header class="entry-header">
+      <h2 class="entry-title">
+      <a href="${data.link}">${data.title.rendered}`;
+
+      if (data._qod_quote_source) {
+        quoteBuilder += `<span class="quote-source">${data._qod_quote_source}</span>`;
+      }
+      quoteBuilder += '</a></h2></header>';
+    } 
+    
+    $post.append(quoteBuilder);
   }
 
   // Function to fetch a random quote
@@ -47,11 +63,12 @@
 
   // TODO add placeholder before compile finishes then use this script
   // Event handler to recieve random quote on initial page load
-  // let firstPageLoad = 0;
-  // if (firstPageLoad === 0) {
-  //   firstPageLoad++;
-  //   randomQuoteFunction();
-  // }
+  let firstPageLoad = 0;
+  if (firstPageLoad === 0) {
+    firstPageLoad++;
+    randomQuoteFunction();
+    console.log($('.blog'));
+  }
 
   // Revert to a previously saved state
   window.addEventListener('popstate', function(event) {

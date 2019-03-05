@@ -320,6 +320,7 @@ Main Styles
     max-width: 1080px;
     margin: 2em auto 3em; }
     .site-content .content-area {
+      width: 100%;
       max-width: 700px;
       margin: 0 auto; }
     .site-content:before, .site-content:after {
@@ -337,6 +338,14 @@ Main Styles
 Quote Styles
 =========================
 */
+.site-main .fa-spinner {
+  display: block;
+  font-size: 10em;
+  width: 200px;
+  margin: 1.5rem auto;
+  -webkit-transform: rotate(720deg) 2s;
+          transform: rotate(720deg) 2s; }
+
 .site-main h2.entry-title a {
   color: #fff;
   font-weight: lighter; }
@@ -485,9 +494,6 @@ Categories and Tags Page
   .category article:first-of-type, .tag article:first-of-type {
     border-top: 1px dotted #fff; }
 
-.page-template-page-submit .content-area {
-  width: 100%; }
-
 .page-template-page-submit form div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -542,9 +548,6 @@ Categories and Tags Page
 */
 .error404 .page-header {
   font-weight: lighter; }
-
-.error404 .content-area {
-  width: 100%; }
 
 /*
 =========================

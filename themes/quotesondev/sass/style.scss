@@ -49,7 +49,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 // CSS included in style.css. Preloaded with starter
 
 @import "normalize";
-// @import "fonts";
+@import "fonts";
 // @import "typography";
 // @import "elements";
 // @import "forms";
@@ -62,8 +62,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 // import custom styling used ontop of start
 @import 'main';
 @import 'header';
-@import 'footer';
-@import 'navigation-stuff';
+@import 'footer&nav';
 @import 'archive';
 @import 'submit-quote';
 @import '404nsearch';

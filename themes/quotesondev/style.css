@@ -219,6 +219,34 @@ td,
 th {
   padding: 0; }
 
+@font-face {
+  font-family: 'Exo';
+  src: url("../../fonts/Exo-Light.eot");
+  src: url("../../fonts/Exo-Light.eot?#iefix") format("embedded-opentype"), url("../../fonts/Exo-Light.woff2") format("woff2"), url("../../fonts/Exo-Light.woff") format("woff"), url("../../fonts/Exo-Light.ttf") format("truetype"), url("../../fonts/Exo-Light.svg#Exo-Light") format("svg");
+  font-weight: 300;
+  font-style: lighter; }
+
+@font-face {
+  font-family: 'Exo';
+  src: url("../../fonts/Exo-Medium.eot");
+  src: url("../../fonts/Exo-Medium.eot?#iefix") format("embedded-opentype"), url("../../fonts/Exo-Medium.woff2") format("woff2"), url("../../fonts/Exo-Medium.woff") format("woff"), url("../../fonts/Exo-Medium.ttf") format("truetype"), url("../../fonts/Exo-Medium.svg#Exo-Medium") format("svg");
+  font-weight: 500;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Exo';
+  src: url("../../fonts/Exo-LightItalic.eot");
+  src: url("../../fonts/Exo-LightItalic.eot?#iefix") format("embedded-opentype"), url("../../fonts/Exo-LightItalic.woff2") format("woff2"), url("../../fonts/Exo-LightItalic.woff") format("woff"), url("../../fonts/Exo-LightItalic.ttf") format("truetype"), url("../../fonts/Exo-LightItalic.svg#Exo-LightItalic") format("svg");
+  font-weight: 300;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'Exo';
+  src: url("../../fonts/Exo-MediumItalic.eot");
+  src: url("../../fonts/Exo-MediumItalic.eot?#iefix") format("embedded-opentype"), url("../../fonts/Exo-MediumItalic.woff2") format("woff2"), url("../../fonts/Exo-MediumItalic.woff") format("woff"), url("../../fonts/Exo-MediumItalic.ttf") format("truetype"), url("../../fonts/Exo-MediumItalic.svg#Exo-MediumItalic") format("svg");
+  font-weight: 500;
+  font-style: italic; }
+
 /*
 =========================
 Variables
@@ -230,13 +258,16 @@ General Styles
 =========================
 */
 body {
+  max-width: 1080px;
   background-color: #222222;
   color: #fff;
   line-height: 1.5;
+  font-family: 'Exo', sans-serif;
   font-size: 16px; }
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #00cc00; }
 
 ul {
   list-style: none; }
@@ -244,18 +275,30 @@ ul {
 .site {
   margin: 20px; }
 
+@media screen and (min-width: 800px) {
+  body {
+    font-size: 20px; } }
+
 /*
 =========================
 Main Styles
 =========================
 */
 .site-title {
-  margin-top: 1em;
-  font-size: 3em; }
+  margin: 3rem 0 0 0;
+  font-size: 2.4em; }
 
 .site-content {
-  min-height: 50vh;
-  margin: 2em 0 4em; }
+  min-height: 45vh;
+  margin: 2em 0 3em; }
+
+@media screen and (min-width: 400px) {
+  .site-title {
+    font-size: 3em; } }
+
+@media screen and (min-width: 600px) {
+  .site-title {
+    font-size: 4em; } }
 
 /*
 =========================
@@ -271,12 +314,16 @@ Quote Styles
 .site-main .entry-content a {
   color: #00cc00; }
 
+.site-main .entry-content p {
+  font-size: 1.2em; }
+
 /*
 =========================
 Another Quote Button Styles
 =========================
 */
 #another-quote {
+  margin: 1.5rem 0;
   padding: 0.75rem 2.25rem;
   background-color: transparent;
   border: 2px solid #00cc00;
@@ -293,9 +340,37 @@ Another Quote Button Styles
   color: #00cc00;
   font-weight: lighter; }
 
-.site-info a {
-  color: #00cc00; }
+/*
+=========================
+Site Footer Styles
+=========================
+*/
+.site-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap; }
+  .site-footer .site-info p {
+    margin: 0; }
 
+@media screen and (min-width: 600px) {
+  .site-footer {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; } }
+
+/*
+=========================
+Navigation Styles
+=========================
+*/
 .main-navigation ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -307,11 +382,18 @@ Another Quote Button Styles
   padding: 0; }
   .main-navigation ul li:not(:last-child):after {
     content: " | ";
-    margin: 0 10px; }
+    margin: 0 0.75rem; }
 
-.main-navigation a {
-  color: #00cc00; }
+@media screen and (min-width: 600px) {
+  .main-navigation ul li:after {
+    content: " | ";
+    margin: 0 0.75rem; } }
 
+/*
+=========================
+Pagination Styles
+=========================
+*/
 .pagination, .number-pagination {
   margin: 2em 0; }
   .pagination *, .number-pagination * {
@@ -340,12 +422,17 @@ Main Archive Page
 
 /*
 =========================
-Categories Page
+Categories and Tags Page
 =========================
 */
+.category .page-header, .tag .page-header {
+  margin-bottom: 2em; }
+
 .category article, .tag article {
   padding: 20px 0;
   border-bottom: 1px dotted #fff; }
+  .category article:first-of-type, .tag article:first-of-type {
+    border-top: 1px dotted #fff; }
 
 .page-template-page-submit form div {
   display: -webkit-box;
@@ -394,21 +481,42 @@ Categories Page
 .page-template-page-submit a {
   color: #00cc00; }
 
-.search-form fieldset {
-  padding: 0;
-  border: 0px solid transparent; }
+/*
+=========================
+404 Page Styles
+=========================
+*/
+.error404 .page-header {
+  font-weight: lighter; }
 
-.search-form .search-field {
-  padding: 0.5rem 0.75rem;
-  background-color: transparent;
-  border: 2px solid #00cc00;
-  border-radius: 3px; }
+/*
+=========================
+Search Field Styles
+=========================
+*/
+.search-form {
+  margin: 1.5rem 0; }
+  .search-form fieldset {
+    padding: 0;
+    border: 0px solid transparent; }
+  .search-form .search-field {
+    width: 70%;
+    max-width: 300px;
+    padding: 0.5rem 0.75rem;
+    background-color: transparent;
+    border: 2px solid #00cc00;
+    border-radius: 3px;
+    line-height: 1.5em; }
+  .search-form .search-submit {
+    background-color: transparent;
+    border: 0px solid transparent;
+    color: #00cc00; }
 
-.search-form .search-submit {
-  background-color: transparent;
-  border: 0px solid transparent;
-  color: #00cc00; }
-
+/*
+=========================
+Search Results Styles
+=========================
+*/
 .search-results .page-header {
   border-bottom: 1px dashed #fff; }
 
@@ -423,3 +531,7 @@ Categories Page
 .search-results h3 a {
   color: #00cc00;
   font-size: 1.5em; }
+
+@media screen and (min-width: 600px) {
+  .search-results h2 .search-query {
+    display: inline-block; } }

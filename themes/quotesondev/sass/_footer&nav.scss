@@ -1,0 +1,72 @@
+/*
+=========================
+Site Footer Styles
+=========================
+*/
+
+.site-footer {
+  display: flex;
+  flex-flow: column nowrap;
+
+  .site-info {
+    p {
+      margin: 0;
+    }
+  }
+}
+
+@media screen and (min-width: $tablet) {
+  .site-footer{
+    flex-flow: row nowrap;
+    align-items: center;
+  }
+}
+
+/*
+=========================
+Navigation Styles
+=========================
+*/
+
+.main-navigation ul {
+  display: flex;
+  flex-flow: row nowrap;
+
+  padding: 0;
+
+  li:not(:last-child) {
+    
+    &:after {
+      
+      content: " | ";
+      margin: 0 $base-spacing / 2;
+    }
+  }
+}
+
+@media screen and (min-width: $tablet) {
+  .main-navigation ul li {
+    &:after {
+      content: " | ";
+      margin: 0 $base-spacing / 2;
+    }
+  }
+}
+
+/*
+=========================
+Pagination Styles
+=========================
+*/
+
+.pagination, .number-pagination {
+  margin: 2em 0;
+
+  * {
+    padding-right: $base-spacing / 4;
+  }
+
+  a {
+    color: $brand-colour-green;
+  }
+}

@@ -31,7 +31,7 @@ get_header(); ?>
 					<input type="text" id="find-quote" name="_qod_quote_source">
 				</div>
 				<div>
-					<label for="name">Provide url of quote source, if available.</label>
+					<label for="name">Provide the url of the quote source, if available.</label>
 					<input type="text" id="url-source" name="_qod_quote_source_url">
 				</div>
 				<button type="submit" id="submit-quote">Submit Quote</button>

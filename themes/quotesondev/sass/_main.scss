@@ -6,6 +6,13 @@ Variables
 
 // Dimensions
 $base-spacing: 1.5rem;
+$max-content-width: 1080px;
+
+// Media Screen Sizes
+$small-phone: 400px;
+$tablet: 600px;
+$larger-tablet: 800px;
+$desktop: 1120px;
 
 // Colours
 $brand-colour-green: #00cc00;
@@ -18,14 +25,18 @@ General Styles
 */
 
 body {
+  max-width: 1080px;
+
   background-color: #222222;
   color: $font-colour-base;
   line-height: 1.5;
+  font-family: 'Exo', sans-serif;
   font-size: 16px;
 }
 
 a {
   text-decoration: none;
+  color: $brand-colour-green;
 }
 
 ul {
@@ -36,6 +47,13 @@ ul {
   margin: 20px;
 }
 
+@media screen and (min-width: $larger-tablet) {
+  body {
+    font-size: 20px;
+  }
+}
+
+
 /*
 =========================
 Main Styles
@@ -43,14 +61,26 @@ Main Styles
 */
 
 .site-title {
-  margin-top: 1em;
+  margin: $base-spacing * 2 0 0 0;
 
-  font-size: 3em;
+  font-size: 2.4em;
 }
 
 .site-content {
-  min-height: 50vh;
-  margin: 2em 0 4em;
+  min-height: 45vh;
+  margin: 2em 0 3em;
+}
+
+@media screen and (min-width: $small-phone) {
+  .site-title {
+    font-size: 3em;
+  }
+}
+
+@media screen and (min-width: $tablet) {
+  .site-title {
+    font-size: 4em;
+  }
 }
 
 /*
@@ -74,6 +104,10 @@ Quote Styles
     a {
       color: $brand-colour-green;
     }
+    
+    p {
+      font-size: 1.2em;
+    }
   }
 }
 
@@ -84,6 +118,7 @@ Another Quote Button Styles
 */
 
 #another-quote {
+  margin: $base-spacing 0;
   padding: $base-spacing / 2 $base-spacing * 1.5;
 
   background-color: transparent;

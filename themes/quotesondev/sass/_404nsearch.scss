@@ -1,4 +1,23 @@
+/*
+=========================
+404 Page Styles
+=========================
+*/
+
+.error404 {
+  .page-header {
+    font-weight: lighter;
+  }
+}
+
+/*
+=========================
+Search Field Styles
+=========================
+*/
 .search-form {
+  margin: $base-spacing 0;
+
   fieldset {
     padding: 0;
     
@@ -6,11 +25,14 @@
   }
 
   .search-field {
+    width: 70%;
+    max-width: 300px;
     padding: $base-spacing / 3 $base-spacing / 2;
 
     background-color: transparent;
     border: 2px solid $brand-colour-green;
     border-radius: 3px;
+    line-height: 1.5em;
   }
 
   .search-submit {
@@ -20,6 +42,11 @@
   }
 }
 
+/*
+=========================
+Search Results Styles
+=========================
+*/
 .search-results {
   .page-header {
     border-bottom: 1px dashed $font-colour-base;
@@ -40,5 +67,15 @@
   h3 a {
     color: $brand-colour-green;
     font-size: 1.5em;
+  }
+}
+
+@media screen and (min-width: $tablet) {
+  .search-results {
+    h2 {
+      .search-query {
+        display: inline-block;
+      }
+    }
   }
 }

@@ -33,10 +33,6 @@
     }
   }
 
-  form.hidden {
-    display: none;
-  }
-
   #submit-quote, .submit-another button, .error-message button{
     margin: $base-spacing / 2 0;
     padding: $base-spacing / 4 $base-spacing;

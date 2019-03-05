@@ -275,6 +275,9 @@ ul {
 .site {
   margin: 20px; }
 
+.hidden {
+  display: none; }
+
 @media screen and (min-width: 800px) {
   body {
     font-size: 20px; } }
@@ -523,9 +526,6 @@ Categories and Tags Page
     background-color: transparent;
     border: 2px solid #00cc00;
     border-radius: 3px; }
-
-.page-template-page-submit form.hidden {
-  display: none; }
 
 .page-template-page-submit #submit-quote, .page-template-page-submit .submit-another button, .page-template-page-submit .error-message button {
   margin: 0.75rem 0;

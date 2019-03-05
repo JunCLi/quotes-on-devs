@@ -32,10 +32,6 @@ get_header(); ?>
 							<li><a href="<?php echo get_permalink() ?>"><?php the_title() ?></a></li>
 						<?php endwhile; wp_reset_postdata();
 					endif;	
-
-					
-
-					
 					?>
 				</ul>
 			</section> 

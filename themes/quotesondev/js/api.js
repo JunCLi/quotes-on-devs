@@ -61,13 +61,20 @@
     randomQuoteFunction();
   });
 
+
+  console.log($('.hidden').html());
+  console.log($('.fa-spinner').length);
+
+  if ($('.hidden').html()) {
+    console.log('wtf js');
+  }
+
   // TODO add placeholder before compile finishes then use this script
   // Event handler to recieve random quote on initial page load
   let firstPageLoad = 0;
-  if (firstPageLoad === 0) {
+  if (firstPageLoad === 0 && $('.fa-spinner').length) {
     firstPageLoad++;
     randomQuoteFunction();
-    console.log($('.blog'));
   }
 
   // Revert to a previously saved state

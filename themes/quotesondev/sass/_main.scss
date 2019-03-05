@@ -7,6 +7,7 @@ Variables
 // Dimensions
 $base-spacing: 1.5rem;
 $max-content-width: 1080px;
+$inner-content-width: 700px;
 
 // Media Screen Sizes
 $small-phone: 400px;
@@ -25,7 +26,7 @@ General Styles
 */
 
 body {
-  max-width: 1080px;
+  max-width: $max-content-width;
 
   background-color: #222222;
   color: $font-colour-base;
@@ -50,6 +51,12 @@ ul {
 @media screen and (min-width: $larger-tablet) {
   body {
     font-size: 20px;
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  body {
+    margin: 0 auto;
   }
 }
 
@@ -83,6 +90,42 @@ Main Styles
   }
 }
 
+@media screen and (min-width: $desktop) {
+  .site-title {
+    font-size: 5em;
+    max-width: $inner-content-width;
+    margin: 0 auto;
+  }
+
+  .site-content {
+    display: flex;
+    flex-flow: row nowrap;
+
+    max-width: $max-content-width;
+    margin: 2em auto 3em;
+
+    .content-area {
+      max-width: $inner-content-width;
+      margin: 0 auto;
+    }
+
+    &:before, &:after {
+      color: $brand-colour-green;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      font-size: 5em;
+    }
+
+    &:before {
+      content: "\f10d";
+    }
+
+    &:after {
+      content: "\f10e";
+    }
+  }
+}
+
 /*
 =========================
 Quote Styles
@@ -93,10 +136,21 @@ Quote Styles
   h2.entry-title {
     a {
       color: $font-colour-base;
+      font-weight: lighter;
     }
     
     &:before {
       content: "— ";
+    }
+
+    .quote-source {
+      font-weight: lighter;
+      color: $brand-colour-green;
+
+      &:before {
+        content: ", ";
+        color: $font-colour-base;
+      }
     }
   }
 
@@ -127,4 +181,11 @@ Another Quote Button Styles
   color: $brand-colour-green;
   font-weight: bold;
   text-transform: capitalize;
+}
+
+@media screen and (min-width: $desktop) {
+  #another-quote {
+    display: block;
+    margin: $base-spacing auto;
+  }
 }

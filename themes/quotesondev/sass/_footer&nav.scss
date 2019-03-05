@@ -22,6 +22,12 @@ Site Footer Styles
   }
 }
 
+@media screen and (min-width: $desktop) {
+  .site-footer {
+    justify-content: flex-end;
+  }
+}
+
 /*
 =========================
 Navigation Styles

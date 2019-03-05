@@ -5,11 +5,13 @@
 
   // Update Content on random quote
   const updateContent = (data) => {
-    const $content = $('.entry-content');
-    const $title = $('.entry-title');
+    // let quoteBuilder = '';
 
-    $content.html(data.content.rendered);
-    $title.html(data.title.rendered);
+    $('.entry-content').html(data.content.rendered);
+    $('.entry-title').html(`<a href="${data.link}">${data.title.rendered}</a><span class="quote-source"></span>`);
+    $('.quote-source').html(data._qod_quote_source);
+    console.log(data);
+    console.log(data._qod_quote_source);
   }
 
   // Function to fetch a random quote
